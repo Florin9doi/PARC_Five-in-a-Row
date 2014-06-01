@@ -18,14 +18,6 @@ namespace Server {
             public UInt64 status;
             public Byte[,] gameBoard;
 
-            public GameStruct ( UInt64 gameNr, string player1, UInt16 status ) {
-                this.gameNr = gameNr;
-                this.player1 = player1;
-                this.player2 = "";
-                this.status = status;
-                gameBoard = new Byte[15, 15];
-            }
-
             public GameStruct ( UInt64 gameNr, string player1, string player2, UInt16 status ) {
                 this.gameNr = gameNr;
                 this.player1 = player1;
@@ -72,7 +64,7 @@ namespace Server {
                 string player1 = text.Substring ( 4 );
                 Console.WriteLine ( player1 + " has created a game" );
 
-                gameRooms.Add ( nrOfGame, new GameStruct ( nrOfGame, player1, 0 ) );
+                gameRooms.Add ( nrOfGame, new GameStruct ( nrOfGame, player1, "", 0 ) );
                 gamePointer.Add ( player1, nrOfGame );
 
                 /* register new game */
